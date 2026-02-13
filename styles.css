@@ -1,0 +1,213 @@
+:root {
+  --bg: #11031c;
+  --bg2: #21093a;
+  --card: #2a1247;
+  --ink: #fef9ff;
+  --accent: #ff5fa2;
+  --accent2: #44f5ff;
+  --good: #a6ff66;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 0%, #3d0f64, var(--bg) 45%),
+    linear-gradient(130deg, var(--bg), var(--bg2));
+  overflow-x: hidden;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+.hero,
+main {
+  width: min(1020px, 92vw);
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  padding: 4.2rem 0 2rem;
+  animation: rise-in 700ms ease-out;
+}
+
+.hero h1 {
+  margin: 0.3rem 0;
+  font-size: clamp(2.2rem, 7vw, 4.7rem);
+  font-family: 'Permanent Marker', cursive;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 14px rgba(255, 95, 162, 0.45);
+}
+
+.hero__kicker {
+  color: var(--good);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.hero__tagline {
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+  margin: 0.4rem 0;
+  color: var(--accent2);
+}
+
+.hero__subtext {
+  max-width: 70ch;
+  margin: 1rem auto 0;
+  line-height: 1.6;
+  opacity: 0.94;
+}
+
+.hero__start {
+  margin-top: 1.4rem;
+  padding: 0.8rem 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  color: #21093a;
+  font-weight: 700;
+  background: linear-gradient(95deg, var(--accent2), var(--accent));
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.hero__start:hover,
+.hero__start:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.08);
+}
+
+main {
+  padding-bottom: 4rem;
+}
+
+.journey {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.tier-card {
+  background: linear-gradient(140deg, #2d164f, #251040);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow);
+  transform: translateY(10px) scale(0.985);
+  opacity: 0.64;
+  transition: transform 350ms ease, opacity 350ms ease, border-color 350ms ease;
+}
+
+.tier-card.is-active {
+  border-color: rgba(68, 245, 255, 0.9);
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  animation: pulse 950ms ease;
+}
+
+.tier-card__emoji {
+  font-size: 1.5rem;
+}
+
+.teasers,
+.improvements {
+  margin-top: 2rem;
+  background: rgba(15, 8, 30, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.1rem 1.2rem;
+}
+
+.teasers__header p {
+  margin-top: 0;
+  opacity: 0.85;
+}
+
+.teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+.teaser {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.85rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 280ms ease, opacity 280ms ease;
+}
+
+.teaser.hidden {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.teaser.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  animation: reveal 520ms cubic-bezier(0.14, 0.88, 0.31, 1.14);
+}
+
+.improvements ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.65;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 rgba(68, 245, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(68, 245, 255, 0.34);
+  }
+  100% {
+    box-shadow: var(--shadow);
+  }
+}
+
+@keyframes reveal {
+  from {
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

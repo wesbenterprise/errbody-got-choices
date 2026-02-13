@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyphy Hierarchy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <header class="hero">
+      <p class="hero__kicker">Bay Energy Activated</p>
+      <h1>Hyphy Hierarchy</h1>
+      <p class="hero__tagline">Everybody got choices</p>
+      <p class="hero__subtext">
+        Build your stack from saucy to legendary — with motion, flavor, and a little “tell me when to go.”
+      </p>
+      <button class="hero__start" id="start-tour">Start the Hyphy Flow</button>
+    </header>
+
+    <main>
+      <section class="journey" id="journey" aria-label="Hyphy hierarchy journey">
+        <article class="tier-card is-active" data-tier="1">
+          <span class="tier-card__emoji" aria-hidden="true">🚗</span>
+          <h2>Tier 1: Parked Up</h2>
+          <p>Base mode. You peep the options, maybe bop your head, but you still deciding the move.</p>
+        </article>
+        <article class="tier-card" data-tier="2">
+          <span class="tier-card__emoji" aria-hidden="true">🔊</span>
+          <h2>Tier 2: Slappin</h2>
+          <p>Now the bass hits. Choices start branching. We add visual pulses so each decision feels alive.</p>
+        </article>
+        <article class="tier-card" data-tier="3">
+          <span class="tier-card__emoji" aria-hidden="true">✨</span>
+          <h2>Tier 3: Ghost Ride Glow</h2>
+          <p>Dynamic transitions shift with your path. Teaser cards unlock and hint at the final hierarchy.</p>
+        </article>
+      </section>
+
+      <section class="teasers" aria-label="Hierarchy teaser preview">
+        <div class="teasers__header">
+          <h2>Final Hierarchy Teasers</h2>
+          <p>Not the full map yet — just enough to keep folks curious.</p>
+        </div>
+        <div class="teaser-grid" id="teaser-grid">
+          <article class="teaser hidden" data-unlock="1">
+            <h3>Choice Heatmap</h3>
+            <p>See where users hesitate, then tune wording with Bay-style clarity.</p>
+          </article>
+          <article class="teaser hidden" data-unlock="2">
+            <h3>Momentum Meter</h3>
+            <p>Track confidence as users climb tiers and reward decisive moves.</p>
+          </article>
+          <article class="teaser hidden" data-unlock="3">
+            <h3>Boss Mode Board</h3>
+            <p>A final hierarchy snapshot showing top paths, top vibes, top outcomes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="improvements" aria-label="Product improvements">
+        <h2>Improvement Pass</h2>
+        <ul>
+          <li>Improved contrast, bigger type, and motion-safe fallbacks for accessibility.</li>
+          <li>Progressive disclosure keeps complexity low while still teasing end-state value.</li>
+          <li>Animated state changes with semantic HTML for better UX + maintainability.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
