@@ -14,63 +14,43 @@
   </head>
   <body>
     <div class="noise-overlay" aria-hidden="true"></div>
+
     <header class="hero">
       <p class="hero__kicker">Bay Energy Activated</p>
       <h1>Hyphy Hierarchy</h1>
       <p class="hero__tagline">Everybody got choices</p>
       <p class="hero__subtext">
-        Build your stack from saucy to legendary — with motion, flavor, and a little “tell me when to go.”
+        Pick what wins head-to-head and we build your personal hierarchy. Start with foods,
+        then rank dog breeds, states, after-school activities, and school subjects.
       </p>
-      <button class="hero__start" id="start-tour">Start the Hyphy Flow</button>
     </header>
 
     <main>
-      <section class="journey" id="journey" aria-label="Hyphy hierarchy journey">
-        <article class="tier-card is-active" data-tier="1">
-          <span class="tier-card__emoji" aria-hidden="true">🚗</span>
-          <h2>Tier 1: Parked Up</h2>
-          <p>Base mode. You peep the options, maybe bop your head, but you still deciding the move.</p>
-        </article>
-        <article class="tier-card" data-tier="2">
-          <span class="tier-card__emoji" aria-hidden="true">🔊</span>
-          <h2>Tier 2: Slappin</h2>
-          <p>Now the bass hits. Choices start branching. We add visual pulses so each decision feels alive.</p>
-        </article>
-        <article class="tier-card" data-tier="3">
-          <span class="tier-card__emoji" aria-hidden="true">✨</span>
-          <h2>Tier 3: Ghost Ride Glow</h2>
-          <p>Dynamic transitions shift with your path. Teaser cards unlock and hint at the final hierarchy.</p>
-        </article>
+      <section class="controls" aria-label="Ranking controls">
+        <label class="controls__label" for="category-select">Category</label>
+        <select id="category-select" class="controls__select"></select>
+
+        <button id="undo-btn" class="controls__undo" type="button" disabled>
+          Undo last answer
+        </button>
+
+        <p id="round-status" class="controls__status" aria-live="polite"></p>
       </section>
 
-      <section class="teasers" aria-label="Hierarchy teaser preview">
-        <div class="teasers__header">
-          <h2>Final Hierarchy Teasers</h2>
-          <p>Not the full map yet — just enough to keep folks curious.</p>
-        </div>
-        <div class="teaser-grid" id="teaser-grid">
-          <article class="teaser hidden" data-unlock="1">
-            <h3>Choice Heatmap</h3>
-            <p>See where users hesitate, then tune wording with Bay-style clarity.</p>
-          </article>
-          <article class="teaser hidden" data-unlock="2">
-            <h3>Momentum Meter</h3>
-            <p>Track confidence as users climb tiers and reward decisive moves.</p>
-          </article>
-          <article class="teaser hidden" data-unlock="3">
-            <h3>Boss Mode Board</h3>
-            <p>A final hierarchy snapshot showing top paths, top vibes, top outcomes.</p>
-          </article>
+      <section class="duel" aria-label="Choose between two options">
+        <h2>Which one you like more right now?</h2>
+        <div class="duel__grid">
+          <button id="choice-a" class="choice-card" type="button"></button>
+          <button id="choice-b" class="choice-card" type="button"></button>
         </div>
       </section>
 
-      <section class="improvements" aria-label="Product improvements">
-        <h2>Improvement Pass</h2>
-        <ul>
-          <li>Improved contrast, bigger type, and motion-safe fallbacks for accessibility.</li>
-          <li>Progressive disclosure keeps complexity low while still teasing end-state value.</li>
-          <li>Animated state changes with semantic HTML for better UX + maintainability.</li>
-        </ul>
+      <section class="rankings" aria-label="Your hierarchy">
+        <div class="rankings__header">
+          <h2>Your Live Hierarchy</h2>
+          <p>Rankings update after every comparison.</p>
+        </div>
+        <ol id="ranking-list" class="ranking-list"></ol>
       </section>
     </main>
 
